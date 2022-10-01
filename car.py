@@ -1,4 +1,11 @@
 from shapes import Paper, Triangle, Rectangle, Oval
+import pandas as pd
+
+
+df = pd.read_csv(
+    'Dataset/PSA_ADAS_W3_FC_2022-09-01_14-49_0054.MF4/Group_349.csv')
+df[['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dx',
+    '_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy']]
 
 # Center
 a = 300
@@ -8,11 +15,10 @@ d = 250
 # Colors
 sensorColor = "light coral"
 
+paper = Paper()
+
 
 def Car():
-
-    paper = Paper()
-
     body = Rectangle()
     bodyBlind1 = Rectangle()
     bodyBlind2 = Rectangle()
@@ -46,7 +52,28 @@ def Car():
     s3.draw(a+50, b+100, a+50, b+200, a+150, b+100, sensorColor)
     s4.draw(a-50, b+100, a-50, b+200, a-150, b+100, sensorColor)
 
-    paper.display()
+
+def Objects():
+    obj1 = Oval()
+
+    x = 0
+    y = 0
+
+    print('x')
+    for row in range(0, 29872):
+        dx = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dx'].iloc[row]
+        dy = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy'].iloc[row]
+        x = dx/50
+        y = dy
+        obj1.set_param(20, 20, x, y, "blue")
+
+        obj1.draw()
+    '''
+    print('y')
+    for row in range(0, 50):
+        dy = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy'].iloc[row]
+        
+    '''
 
 
 if(((185 <= c <= 235) and (240 <= d < 360)) or ((365 <= c <= 415) and (240 <= d < 360))):
@@ -54,3 +81,7 @@ if(((185 <= c <= 235) and (240 <= d < 360)) or ((365 <= c <= 415) and (240 <= d 
 
 
 Car()
+
+Objects()
+
+paper.display()
