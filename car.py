@@ -50,6 +50,7 @@ def Car():
 
 
 if(((185 <= c <= 235) and (240 <= d < 360)) or ((365 <= c <= 415) and (240 <= d < 360))):
-    {
-        print("blind spot")}
+    print("blind spot")
+
+
 Car()
