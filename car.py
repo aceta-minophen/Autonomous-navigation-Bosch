@@ -1,35 +1,44 @@
 from shapes import Paper, Triangle, Rectangle, Oval
 
-a = 200
+# Center
+a = 300
 b = 300
+
+# Colors
+sensorColor = "light coral"
 
 
 def Car():
 
     paper = Paper()
 
-    rect1 = Rectangle()
+    body = Rectangle()
+    cam = Triangle()
+    s1 = Triangle()
+    s2 = Triangle()
+    s3 = Triangle()
+    s4 = Triangle()
 
-    rect1.set_x(a)
-    rect1.set_y(b)
+    body.set_param(100, 200, a, b, "blue")
 
-    rect1.set_width(100)
-    rect1.set_height(200)
-    rect1.set_color("blue")
+    # rect1.set_x(0)
+    # rect1.set_y(0)
 
-    circ1 = Oval()
+    #circ1 = Oval()
 
-    circ1.set_x(a+50)
-    circ1.set_y(b+150)
+    #circ1.set_param(100, 100, a, b, "black")
 
-    circ1.set_height(1)
-    circ1.set_width(1)
+    # trian.draw()
 
-    circ1.set_color("white")
+    body.draw()
 
-    rect1.draw()
+    # circ1.draw()
 
-    circ1.draw()
+    cam.draw(a, b-75, a-50, b-220, a+50, b-220, "light green")
+    s1.draw(a-50, b-100, a-50, b-200, a-150, b-100, sensorColor)
+    s2.draw(a+50, b-100, a+50, b-200, a+150, b-100, sensorColor)
+    s3.draw(a+50, b+100, a+50, b+200, a+150, b+100, sensorColor)
+    s4.draw(a-50, b+100, a-50, b+200, a-150, b+100, sensorColor)
 
     paper.display()
 

@@ -80,6 +80,7 @@ class Shape():
         # Put the shape in the centre if no xy coords were given
         if x is None:
             self.x = (Paper.tk.paper_width/2) - (self.width/2)
+            print(self.x)
         else:
             self.x = x
         if y is None:
@@ -97,8 +98,15 @@ class Shape():
         """
         x1 = self.x
         y1 = self.y
-        x2 = self.x + self.width
-        y2 = self.y + self.height
+        x2 = self.x + (self.width)
+        y2 = self.y + (self.height)
+
+        '''
+        print(x1)
+        print(y1)
+        print(x2)
+        print(y2)
+        '''
         return [x1, y1, x2, y2]
 
     # Randomly generate what the shape looks like
@@ -122,7 +130,15 @@ class Shape():
         self.color = random.choice(
             ["red", "yellow", "blue", "green", "gray", "white", "black", "cyan", "pink", "purple"])
 
+    def set_param(self, width, height, x, y, color):
+        self.width = width
+        self.height = height
+        self.x = x - width/2
+        self.y = y - height/2
+        self.color = color
+
     # Getters and setters for Shape attributes
+
     def set_width(self, width):
         """
         Sets the width of the shape.
@@ -248,11 +264,20 @@ class Triangle(Shape):
         """
         return [self.x, self.y, self.x2, self.y2, self.x3, self.y3]
 
-    def draw(self):
+    def draw(self, x1, y1, x2, y2, x3, y3, color):
         """
         Draws a triangle on the canvas. The properties of the triangle
         can be set using the getter and setter methods in Shape
         """
+        self.x = x1
+        self.y = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.x3 = x3
+        self.y3 = y3
+
+        self.color = color
+
         x1, y1, x2, y2, x3, y3 = self._location()
         # Draw a triangle
         Paper.tk.canvas.create_polygon(x1, y1, x2, y2, x3, y3, fill=self.color)
@@ -314,6 +339,7 @@ class Triangle(Shape):
         raise Exception("Height cannot be defined for Triangle objects")
 
 
+'''
 # This if statement means
 # "if you run this file (rather than importing it), run this demo script"
 if __name__ == "__main__":
@@ -343,3 +369,4 @@ if __name__ == "__main__":
     oval2.draw()
 
     my_drawing.display()
+'''
