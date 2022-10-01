@@ -40,17 +40,17 @@ def Car():
 
     # trian.draw()
 
-    body.draw()
-    bodyBlind1.draw()
-    bodyBlind2.draw()
+    # body.draw()
+    # bodyBlind1.draw()
+    # bodyBlind2.draw()
 
     circ1.draw()
 
-    cam.draw(a, b-75, a-50, b-220, a+50, b-220, "light green")
-    s1.draw(a-50, b-100, a-50, b-200, a-150, b-100, sensorColor)
-    s2.draw(a+50, b-100, a+50, b-200, a+150, b-100, sensorColor)
-    s3.draw(a+50, b+100, a+50, b+200, a+150, b+100, sensorColor)
-    s4.draw(a-50, b+100, a-50, b+200, a-150, b+100, sensorColor)
+    cam.draw(a, b-178.26, a-50, b-220, a+50, b-220, "light green")
+    s1.draw(a-73.8, b-76.64, a-73.8, b-200, a-200, b-76.64, sensorColor)
+    s2.draw(a+73.8, b-76.64, a+73.8, b-200, a+200, b-76.64, sensorColor)
+    s3.draw(a+62.86, b+347.38, a+62.86, b+500, a+200, b+347.38, sensorColor)
+    s4.draw(a-62.86, b+347.38, a-62.86, b+500, a-200, b+347.38, sensorColor)
 
 
 def Objects():
@@ -63,9 +63,9 @@ def Objects():
     for row in range(0, 29872):
         dx = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dx'].iloc[row]
         dy = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy'].iloc[row]
-        x = dx/50
-        y = dy
-        obj1.set_param(20, 20, x, y, "blue")
+        x = dx/10
+        y = dy/10
+        obj1.set_param(5, 5, x, y, "blue")
 
         obj1.draw()
     '''

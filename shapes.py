@@ -13,7 +13,7 @@ class Paper():
     # the tk object which will be used by the shapes
     tk = None
 
-    def __init__(self, width=600, height=600):
+    def __init__(self, width=1000, height=1000):
         """
         Create a Paper object which is required to draw shapes onto.
 
