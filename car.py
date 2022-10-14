@@ -4,8 +4,8 @@ import pandas as pd
 
 df = pd.read_csv(
     'Dataset/PSA_ADAS_W3_FC_2022-09-01_14-49_0054.MF4/Group_349.csv')
-df[['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dx',
-    '_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy']]
+df[['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._2_._m_dx',
+    '_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._2_._m_dy']]
 
 # Center
 a = 300
@@ -36,7 +36,7 @@ def Car():
 
     circ1 = Oval()
 
-    circ1.set_param(20, 20, c, d, "black")
+    circ1.set_param(20, 20, a, b, "blue")
 
     # trian.draw()
 
@@ -60,9 +60,9 @@ def Objects():
     y = 0
 
     print('x')
-    for row in range(0, 29872):
-        dx = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dx'].iloc[row]
-        dy = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._0_._m_dy'].iloc[row]
+    for row in range(0, 400):
+        dx = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._2_._m_dx'].iloc[row]
+        dy = df['_g_Infrastructure_CCR_NET_NetRunnablesClass_m_rteInputData_out_local.TChangeableMemPool._._._m_arrayPool._0_._elem._m_camData._m_objects._m_value._2_._m_dy'].iloc[row]
         x = dx/10
         y = dy/10
         obj1.set_param(5, 5, x, y, "blue")
